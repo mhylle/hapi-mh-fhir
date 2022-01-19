@@ -32,6 +32,8 @@ import ca.uhn.fhir.util.ValidateUtil;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hl7.fhir.instance.model.api.IPrimitiveType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Collections;
 import java.util.Date;
@@ -41,7 +43,7 @@ import java.util.Objects;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 public class DateParam extends BaseParamWithPrefix<DateParam> implements /*IQueryParameterType , */IQueryParameterOr<DateParam> {
-
+	private static final Logger ourLog = LoggerFactory.getLogger(DateParam.class);
 	private static final long serialVersionUID = 1L;
 
 	private final DateParamDateTimeHolder myValue = new DateParamDateTimeHolder();

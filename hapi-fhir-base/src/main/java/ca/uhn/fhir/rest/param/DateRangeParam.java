@@ -8,6 +8,8 @@ import ca.uhn.fhir.rest.api.QualifiedParamList;
 import ca.uhn.fhir.rest.server.exceptions.InvalidRequestException;
 import ca.uhn.fhir.util.DateUtils;
 import org.hl7.fhir.instance.model.api.IPrimitiveType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -42,7 +44,7 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 @SuppressWarnings("UnusedReturnValue")
 public class DateRangeParam implements IQueryParameterAnd<DateParam> {
-
+	private static final Logger ourLog = LoggerFactory.getLogger(DateRangeParam.class);
 	private static final long serialVersionUID = 1L;
 
 	private DateParam myLowerBound;
@@ -177,6 +179,7 @@ public class DateRangeParam implements IQueryParameterAnd<DateParam> {
 
 			switch (theParsed.getPrefix()) {
 				case GREATERTHAN:
+				case STARTS_AFTER:
 				case GREATERTHAN_OR_EQUALS:
 					if (myLowerBound != null) {
 						throw new InvalidRequestException("Can not have multiple date range parameters for the same param that specify a lower bound");
@@ -469,6 +472,7 @@ public class DateRangeParam implements IQueryParameterAnd<DateParam> {
 	 *                      theUpperBound may both be populated, or one may be null, but it is not valid for both to be null.
 	 */
 	public void setRangeFromDatesInclusive(Date theLowerBound, Date theUpperBound) {
+		ourLog.trace("Set Date ranges: {},  {}", theLowerBound, theUpperBound);
 		DateParam lowerBound = theLowerBound != null
 			? new DateParam(GREATERTHAN_OR_EQUALS, theLowerBound) : null;
 		DateParam upperBound = theUpperBound != null
