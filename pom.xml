@@ -27,7 +27,7 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>mhylle-snapshots</id>
-			<url>http://localhost:8081/repository/mhylle/</url>
+			<url>http://localhost:8081/repository/mhylle-snapshots/</url>
 		</snapshotRepository>
 <!--		<snapshotRepository>-->
 <!--			<id>mhylle</id>-->
