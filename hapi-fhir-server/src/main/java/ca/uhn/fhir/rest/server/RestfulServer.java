@@ -1395,7 +1395,7 @@ public class RestfulServer extends HttpServlet implements IRestfulServer<Servlet
 			}
 
 			myStarted = true;
-			ourLog.info("A FHIR has been lit on this server");
+			ourLog.info("A FHIR has been lit on this server, Yay");
 		} finally {
 			myProviderRegistrationMutex.unlock();
 		}
