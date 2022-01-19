@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>ca.uhn.hapi.fhir</groupId>
 		<artifactId>hapi-deployable-pom</artifactId>
-		<version>5.6.2</version>
+		<version>5.6.2-MH-SNAPSHOT</version>
 		<relativePath>../hapi-deployable-pom/pom.xml</relativePath>
 	</parent>
 
@@ -15,7 +15,6 @@
 	<name>HAPI FHIR - Android</name>
 
 	<dependencies>
-	
 		<!-- 
 		This is here, at the top, for the unit tests because otherwise the
 		logger spews out all kinds of junk during unit tests 
